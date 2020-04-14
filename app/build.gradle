@@ -1,0 +1,96 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    flavorDimensions "default"
+
+    defaultConfig {
+        applicationId "com.mobile.testassessmentapp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        dev {
+            applicationId "com.mobile.testassessmentapp.dev"
+            versionNameSuffix " Dev"
+        }
+        prod {
+            applicationId "com.mobile.testassessmentapp"
+        }
+    }
+}
+
+
+final supportDependencies = [
+        multiDex        : "androidx.multidex:multidex:2.0.0",
+        cardView        : "androidx.cardview:cardview:1.0.0",
+        appCompat       : "androidx.appcompat:appcompat:1.1.0",
+//        design          : "com.google.android.material:material:1.1.0",
+        recyclerView    : "androidx.recyclerview:recyclerview:1.1.0",
+        constraintLayout: "androidx.constraintlayout:constraintlayout:1.1.3"
+]
+
+final kotlinDependencies = [
+        kotlinJdk: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlin_version}",
+        kotlinKtx: "androidx.core:core-ktx:1.2.0",
+        //kotlinPaging: "androidx.paging:paging-runtime:2.1.0"
+]
+
+final coroutine = [
+        core          : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.ext.coroutineVersion}",
+        androidVersion: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.ext.coroutineVersion}",
+
+]
+
+final architectureComponents = [
+        lifeCycleRuntime   : "android.arch.lifecycle:runtime:${rootProject.ext.archVersion}",
+        lifeCycleExtensions: "android.arch.lifecycle:extensions:${rootProject.ext.archVersion}",
+        viewModel          : "androidx.lifecycle:lifecycle-viewmodel:${rootProject.ext.viewModelVersion}",
+        liveData           : "androidx.lifecycle:lifecycle-livedata-ktx:${rootProject.ext.liveDataVersion}"
+]
+
+final daggerInjection = [
+        dagger              : "com.google.dagger:dagger:${rootProject.ext.daggerVersion}",
+        daggerAndroid       : "com.google.dagger:dagger-android:${rootProject.ext.daggerVersion}",
+        daggerAndroidSupport: "com.google.dagger:dagger-android-support:${rootProject.ext.daggerVersion}"
+]
+
+final networkDependencies = [
+        retrofit             : "com.squareup.retrofit2:retrofit:${rootProject.ext.RetrofitVersion}",
+        retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:${rootProject.ext.RetrofitVersion}",
+        okhttp               : "com.squareup.okhttp3:okhttp:${rootProject.ext.OkHttpVersion}",
+        okHttp3Logging       : "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.OkHttpVersion}"
+]
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation supportDependencies.values()
+    implementation kotlinDependencies.values()
+    implementation coroutine.values()
+    implementation architectureComponents.values()
+    implementation daggerInjection.values()
+    implementation networkDependencies.values()
+}
