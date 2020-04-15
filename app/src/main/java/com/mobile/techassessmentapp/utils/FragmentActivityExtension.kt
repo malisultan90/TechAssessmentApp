@@ -23,10 +23,18 @@
  */
 package com.skydoves.githubfollows.extension
 
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.request.RequestOptions
+import com.mobile.techassessmentapp.R
 import kotlin.reflect.KClass
 
 /**
@@ -35,5 +43,22 @@ import kotlin.reflect.KClass
  */
 
 fun <T : ViewModel> FragmentActivity.vm(factory: ViewModelProvider.Factory, model: KClass<T>): T {
-  return ViewModelProviders.of(this, factory).get(model.java)
+    return ViewModelProviders.of(this, factory).get(model.java)
+}
+
+
+fun loadImage(
+    context: Context,
+    imageView: ImageView,
+    url: String
+) {
+    val requestOptions = RequestOptions()
+        .placeholder(ColorDrawable(ContextCompat.getColor(context, R.color.dark_grey)))
+        .error(ColorDrawable(ContextCompat.getColor(context, R.color.dark_grey)))
+        .format(DecodeFormat.PREFER_RGB_565)
+    Glide.with(context)
+        .load(url)
+        .apply(requestOptions)
+        .apply(RequestOptions.circleCropTransform())
+        .into(imageView)
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.mobile.techassessmentapp.ui.activity.detail.DetailActivity">
 
@@ -10,27 +11,96 @@
             type="com.mobile.techassessmentapp.ui.activity.detail.DetailActivityViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
-<!--        <com.google.android.material.appbar.AppBarLayout-->
-<!--            android:id="@+id/appBarLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
+        <!--  <com.skydoves.androidveil.VeilRecyclerFrameView-->
+        <!--    android:id="@+id/detail_body_recyclerViewFrame"-->
+        <!--    android:layout_width="match_parent"-->
+        <!--    android:layout_height="wrap_content"-->
+        <!--    android:layout_margin="4dp"-->
+        <!--    app:veilFrame_layout="@layout/item_detail_info"-->
+        <!--    app:veilFrame_veiled="true" />-->
 
-<!--            <include-->
-<!--                android:id="@+id/detail_toolbar"-->
-<!--                layout="@layout/toolbar_default" />-->
-<!--        </com.google.android.material.appbar.AppBarLayout>-->
+        <!--  <LinearLayout-->
+        <!--    android:layout_width="match_parent"-->
+        <!--    android:layout_height="wrap_content"-->
+        <!--    android:layout_alignParentBottom="true"-->
+        <!--    android:orientation="vertical">-->
 
-<!--        <include-->
-<!--            android:id="@+id/detail_header"-->
-<!--            layout="@layout/layout_detail_header" />-->
 
-        <include layout="@layout/layout_detail_body" />
+        <ImageView
+            android:id="@+id/imageview_itemimage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars[0]" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_itemimage"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/textview_desscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="center"
+            android:textColor="@color/dark_grey"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_title"
+            tools:text="Description" />
+
+        <TextView
+            android:id="@+id/textview_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="center"
+            android:textColor="@color/dark_grey"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_desscription"
+            tools:text="Date" />
+
+        <!--    <com.skydoves.androidveil.VeilLayout-->
+        <!--      android:id="@+id/detail_body_veilLayout"-->
+        <!--      android:layout_width="match_parent"-->
+        <!--      android:layout_height="80dp"-->
+        <!--      android:layout_marginBottom="14dp"-->
+        <!--      app:veilLayout_shimmerEnable="true"-->
+        <!--      app:veilLayout_veiled="true">-->
+
+
+        <!--    </com.skydoves.androidveil.VeilLayout>-->
+        <!--  </LinearLayout>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,8 +9,8 @@ import com.mobile.techassessmentapp.R
 import com.mobile.techassessmentapp.model.Results
 import com.mobile.techassessmentapp.ui.activity.base.BaseActivity
 import com.mobile.techassessmentapp.ui.activity.detail.DetailActivity
-import com.mobile.techassessmentapp.ui.adapters.MostPopularAdapter
-import com.mobile.techassessmentapp.ui.adapters.MostPopularItemHolder
+import com.mobile.techassessmentapp.ui.adapter.MostPopularAdapter
+import com.mobile.techassessmentapp.ui.viewholder.MostPopularItemHolder
 import com.skydoves.githubfollows.extension.vm
 import kotlinx.android.synthetic.main.activity_main.*
 

@@ -3,9 +3,13 @@ package com.mobile.techassessmentapp.ui.activity.detail
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import com.mobile.techassessmentapp.R
+import com.mobile.techassessmentapp.databinding.ActivityDetailBinding
 import com.mobile.techassessmentapp.model.Results
 import com.mobile.techassessmentapp.ui.activity.base.BaseActivity
+import com.skydoves.githubfollows.extension.loadImage
 import com.skydoves.githubfollows.extension.vm
 import kotlinx.android.synthetic.main.toolbar_default.*
 import kotlinx.android.synthetic.main.toolbar_default.view.*
@@ -21,12 +25,6 @@ class DetailActivity : BaseActivity() {
     private val viewModel by lazy { vm(viewModelFactory, DetailActivityViewModel::class) }
 
     private lateinit var dataItem: Results
-//    private val binding by lazy {
-//        DataBindingUtil.setContentView<ActivityDetailBinding>(
-//            this,
-//            R.layout.activity_detail
-//        )
-//    }
 
     override fun getContentView(): Int {
         return R.layout.activity_detail
@@ -46,35 +44,21 @@ class DetailActivity : BaseActivity() {
     }
 
     private fun initializeUI() {
-        //toolbar.toolbar_title?.text = dataItem.title
-//        Glide.with(this)
-//            .load(getAvatarFromIntent())
-//            .apply(RequestOptions().circleCrop().dontAnimate())
-//            .listener(object : RequestListener<Drawable> {
-//                override fun onLoadFailed(
-//                    e: GlideException?,
-//                    model: Any?,
-//                    target: Target<Drawable>?,
-//                    isFirstResource: Boolean
-//                ): Boolean {
-//                    supportStartPostponedEnterTransition()
-//                    observeViewModel()
-//                    return false
-//                }
-//
-//                override fun onResourceReady(
-//                    resource: Drawable?,
-//                    model: Any?,
-//                    target: Target<Drawable>?,
-//                    dataSource: DataSource?,
-//                    isFirstResource: Boolean
-//                ): Boolean {
-//                    supportStartPostponedEnterTransition()
-//                    observeViewModel()
-//                    return false
-//                }
-//            })
-//            .into(detail_header_avatar)
+
+        dataItem?.let {
+            binding.textviewTitle.text = it.title
+            binding.textviewDesscription.text = it.abstract
+            binding.textviewDate.text = it.published_date
+
+            if (!it.media.isNullOrEmpty()) {
+                loadImage(
+                    binding.imageviewItemimage.context,
+                    binding.imageviewItemimage,
+                    it.media[0].media_metadata[0].url
+                )
+            }
+
+        }
     }
 
     private fun observeViewModel() {

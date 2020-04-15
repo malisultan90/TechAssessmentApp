@@ -1,10 +1,11 @@
-package com.mobile.techassessmentapp.ui.adapters
+package com.mobile.techassessmentapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.techassessmentapp.model.Results
+import com.mobile.techassessmentapp.ui.viewholder.MostPopularItemHolder
 
 class MostPopularAdapter(
     var mostPopularList: List<Results>,
