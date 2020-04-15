@@ -34,13 +34,6 @@ class RequestInterceptor : Interceptor {
      * @param builder [Request.Builder] object
      */
     private fun setHeaders(builder: Request.Builder) {
-//        if (LitteratiManager.getAppManager().isLogin && LitteratiManager.getAppManager().accessToken.isNotEmpty()) {
-//            Timber.d("Authorization token is: ${LitteratiManager.getAppManager().accessToken}")
-//            builder.header(
-//                AppConstants.AUTHORIZATION,
-//                "${AppConstants.BEARER} ${LitteratiManager.getAppManager().accessToken}"
-//            )
-//        }
 
     }
 }

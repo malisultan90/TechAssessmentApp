@@ -61,67 +61,6 @@ class NetworkModule {
     }
 
 
-//    /**
-//     * Provides [OkHttpClient] instance with pre configuration setup for default instance of Retrofit
-//     * which will be consumed by our network layer
-//     *
-//     * @return [OkHttpClient] instance
-//     */
-//    @Singleton
-//    @Provides
-//    @Named("file-instance")
-//    fun provideOkHttpClientForFile(): OkHttpClient {
-//        if (BuildConfig.DEBUG) {
-//            val interceptor = HttpLoggingInterceptor()
-//            interceptor.level = HttpLoggingInterceptor.Level.BODY
-//            return OkHttpClient.Builder()
-//                .connectTimeout(AppConstants.WEB_CONNECTION_TIMEOUT, TimeUnit.SECONDS)
-//                .readTimeout(AppConstants.FILE_READ_TIMEOUT, TimeUnit.MINUTES)
-//                .writeTimeout(AppConstants.FILE_WRITE_TIMEOUT, TimeUnit.MINUTES)
-//                .addInterceptor(RequestInterceptor())
-//                .addInterceptor(interceptor)
-//                .build()
-//        } else {
-//            return OkHttpClient.Builder()
-//                .connectTimeout(AppConstants.WEB_CONNECTION_TIMEOUT, TimeUnit.SECONDS)
-//                .readTimeout(AppConstants.FILE_READ_TIMEOUT, TimeUnit.MINUTES)
-//                .writeTimeout(AppConstants.FILE_WRITE_TIMEOUT, TimeUnit.MINUTES)
-//                .addInterceptor(RequestInterceptor())
-//                .build()
-//        }
-//
-//    }
-
-//    /**
-//     * Provides [OkHttpClient] instance with pre configuration setup for Glide instance of Retrofit
-//     * which will be consumed by our network layer
-//     *
-//     * @return [OkHttpClient] instance
-//     */
-//    @Singleton
-//    @Provides
-//    @Named("glide-instance")
-//    fun provideOkHttpClientForGlide(): OkHttpClient {
-//        if (BuildConfig.DEBUG) {
-//            val interceptor = HttpLoggingInterceptor()
-//            interceptor.level = HttpLoggingInterceptor.Level.BODY
-//            return OkHttpClient.Builder()
-//                .connectTimeout(AppConstants.WEB_CONNECTION_TIMEOUT, TimeUnit.SECONDS)
-//                .readTimeout(AppConstants.FILE_READ_TIMEOUT, TimeUnit.MINUTES)
-//                .writeTimeout(AppConstants.FILE_WRITE_TIMEOUT, TimeUnit.MINUTES)
-//                .addInterceptor(interceptor)
-//                .build()
-//        } else {
-//            return OkHttpClient.Builder()
-//                .connectTimeout(AppConstants.WEB_CONNECTION_TIMEOUT, TimeUnit.SECONDS)
-//                .readTimeout(AppConstants.FILE_READ_TIMEOUT, TimeUnit.MINUTES)
-//                .writeTimeout(AppConstants.FILE_WRITE_TIMEOUT, TimeUnit.MINUTES)
-//                .build()
-//        }
-//
-//    }
-
-
     /**
      * Provides [Cache] instance for our application which would be used by [OkHttpClient] client.
      * @param application [Application] instance which will used to retrieve our cache directory of the app.
@@ -169,23 +108,6 @@ class NetworkModule {
             .build()
     }
 
-//    /**
-//     * Provides [Retrofit] instance with pre configuration values and it would be used across the application
-//     * for file upload
-//     *
-//     * @return [Retrofit] instance
-//     */
-//    @Singleton
-//    @Provides
-//    @Named("file-instance")
-//    fun provideRetrofitForFile(@Named("file-instance") okHttpClient: OkHttpClient): Retrofit {
-//        return Retrofit.Builder()
-//            .baseUrl(LitteratiManager.getAppManager().baseURL)
-//            .addConverterFactory(GsonConverterFactory.create(provideGsonConfig()))
-//            .client(okHttpClient)
-//            .build()
-//    }
-
 
     /**
      * Provides [LitteratiService] service End point instance which will be used by [Retrofit]
@@ -199,20 +121,5 @@ class NetworkModule {
     fun provideApiService(@Named("default-instance") retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
-
-
-//    /**
-//     * Provides [LitteratiService] service End point instance which will be used by [Retrofit]
-//     * internally for creating service calls for file uploads
-//     * @param retrofit [Retrofit] client object
-//     *
-//     * @return [LitteratiService] instance
-//     */
-//    @Singleton
-//    @Provides
-//    @Named("file-service-instance")
-//    fun provideApiServiceForFile(@Named("file-instance") retrofit: Retrofit): LitteratiService {
-//        return retrofit.create(LitteratiService::class.java)
-//    }
 
 }

@@ -32,7 +32,7 @@ class MainActivity : BaseActivity(), MostPopularItemHolder.ItemClickListener {
 
     private fun setupObservers() {
 
-        viewModel?.data?.observe(this, Observer {
+        viewModel.data.observe(this, Observer {
             it?.data?.results?.let { setupAdapter(it) }
         })
     }

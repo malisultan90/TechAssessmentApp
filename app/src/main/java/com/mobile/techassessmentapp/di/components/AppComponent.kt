@@ -37,21 +37,6 @@ interface AppComponent {
      */
     fun inject(app: TechAssessmentApp)
 
-//    /**
-//     * Retrieve [PerformanceChecker] instance which hold information about device
-//     *
-//     * @return [PerformanceChecker] instance
-//     */
-//    fun getPerformanceChecker(): PerformanceChecker
-//
-//    /**
-//     * Retrieve [OkHttpClient] instance with our pre configuration
-//     *
-//     * @return [OkHttpClient] instance
-//     */
-//    @Named("glide-instance")
-//    fun getOkHttpClient(): OkHttpClient
-
     @Named("default-instance")
     fun getRetrofit(): Retrofit
 }

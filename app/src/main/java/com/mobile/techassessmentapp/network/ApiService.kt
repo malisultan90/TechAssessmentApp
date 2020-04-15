@@ -4,7 +4,6 @@ import com.mobile.techassessmentapp.model.MostPopularApiResponse
 import com.mobile.techassessmentapp.utils.constants.AppConstants.API_KEY
 import retrofit2.Call
 import retrofit2.http.*
-import java.util.*
 
 interface ApiService {
 

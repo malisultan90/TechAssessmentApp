@@ -20,15 +20,4 @@ import javax.inject.Singleton
 )
 internal class AppModule {
 
-//    /**
-//     * Provide [ViewModelProvider.Factory] instance from our [ViewModelSubComponent] sub component layer.
-//     * @param viewModelSubComponent [ViewModelSubComponent] builder
-//     */
-//    @Singleton
-//    @Provides
-//    fun provideViewModelFactory(
-//        viewModelSubComponent: ViewModelSubComponent.Builder
-//    ): ViewModelProvider.Factory {
-//        return LitteratiViewModelFactory(viewModelSubComponent.build())
-//    }
 }

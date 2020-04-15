@@ -20,12 +20,4 @@ object AppConstants {
 
     const val API_UNKNOWN_REQUEST_ERROR_CODE = -1
 
-    /**
-     * Authorization Header name
-     */
-    const val AUTHORIZATION: String = "Authorization"
-
-    const val EXTRA_CHALLENGE_ID = "EXTRA_CHALLENGE_ID"
-    const val EXTRA_CHALLENGE_DETAIL = "EXTRA_CHALLENGE_DETAIL"
-
 }
