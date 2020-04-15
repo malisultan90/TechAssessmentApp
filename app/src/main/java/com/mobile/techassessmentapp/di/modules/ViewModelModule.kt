@@ -25,10 +25,10 @@ package com.skydoves.githubfollows.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.mobile.techassessmentapp.di.AppViewModelFactory
-import com.mobile.techassessmentapp.di.ViewModelKey
+import com.mobile.techassessmentapp.utils.AppViewModelFactory
+import com.mobile.techassessmentapp.utils.ViewModelKey
 import com.mobile.techassessmentapp.ui.activity.detail.DetailActivityViewModel
-import com.mobile.techassessmentapp.viewmodel.MostPopularViewModel
+import com.mobile.techassessmentapp.ui.activity.main.MostPopularViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

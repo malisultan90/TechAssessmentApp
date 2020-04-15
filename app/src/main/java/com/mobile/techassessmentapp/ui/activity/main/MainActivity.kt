@@ -1,4 +1,4 @@
-package com.mobile.techassessmentapp.ui.activity
+package com.mobile.techassessmentapp.ui.activity.main
 
 import android.os.Bundle
 import android.view.View
@@ -11,7 +11,6 @@ import com.mobile.techassessmentapp.ui.activity.base.BaseActivity
 import com.mobile.techassessmentapp.ui.activity.detail.DetailActivity
 import com.mobile.techassessmentapp.ui.adapters.MostPopularAdapter
 import com.mobile.techassessmentapp.ui.adapters.MostPopularItemHolder
-import com.mobile.techassessmentapp.viewmodel.MostPopularViewModel
 import com.skydoves.githubfollows.extension.vm
 import kotlinx.android.synthetic.main.activity_main.*
 

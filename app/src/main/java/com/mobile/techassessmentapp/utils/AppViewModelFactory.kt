@@ -1,4 +1,4 @@
-package com.mobile.techassessmentapp.di
+package com.mobile.techassessmentapp.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

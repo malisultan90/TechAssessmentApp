@@ -1,13 +1,8 @@
 package com.mobile.techassessmentapp.ui.activity.base
 
-import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
-import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import com.mobile.techassessmentapp.di.AppViewModelFactory
-import com.mobile.techassessmentapp.ui.ProgressDialog
+import com.mobile.techassessmentapp.utils.AppViewModelFactory
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 

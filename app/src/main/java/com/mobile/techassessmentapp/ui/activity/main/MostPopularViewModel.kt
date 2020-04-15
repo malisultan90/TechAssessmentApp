@@ -1,16 +1,13 @@
-package com.mobile.techassessmentapp.viewmodel
+package com.mobile.techassessmentapp.ui.activity.main
 
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.switchMap
-import com.mobile.techassessmentapp.TechAssessmentApp
 import com.mobile.techassessmentapp.model.MostPopularApiResponse
 import com.mobile.techassessmentapp.model.Results
 import com.mobile.techassessmentapp.network.ApiService
-import com.mobile.techassessmentapp.network.MostPopularRepository
+import com.mobile.techassessmentapp.repository.MostPopularRepository
 import com.mobile.techassessmentapp.network.Resource
-import com.mobile.techassessmentapp.utils.AbsentLiveData
+import com.mobile.techassessmentapp.ui.activity.base.BaseViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

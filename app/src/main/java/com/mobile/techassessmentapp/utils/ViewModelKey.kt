@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.mobile.techassessmentapp.di
+package com.mobile.techassessmentapp.utils
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

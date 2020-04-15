@@ -1,8 +1,10 @@
-package com.mobile.techassessmentapp.network
+package com.mobile.techassessmentapp.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mobile.techassessmentapp.model.MostPopularApiResponse
+import com.mobile.techassessmentapp.network.ApiService
+import com.mobile.techassessmentapp.network.Resource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,15 +30,22 @@ constructor(
     fun getMostPopularList(): LiveData<Resource<MostPopularApiResponse>> {
         val data = MutableLiveData<Resource<MostPopularApiResponse>>()
         var getMostPopularList = service.getMostPopularList()
-        data.value = Resource.loading(true)
+        data.value =
+            Resource.loading(true)
         getMostPopularList.enqueue(object : Callback<MostPopularApiResponse> {
             override fun onResponse(
                 call: Call<MostPopularApiResponse>,
                 response: Response<MostPopularApiResponse>
             ) {
-                data.value = Resource.loading(false)
+                data.value =
+                    Resource.loading(
+                        false
+                    )
                 if (response.isSuccessful) {
-                    data.value = Resource.success(response.body()!!)
+                    data.value =
+                        Resource.success(
+                            response.body()!!
+                        )
                 } else {
 //                    val error = ErrorUtils.parseError(response)
 //                    data.value =
@@ -46,7 +55,10 @@ constructor(
 
             override fun onFailure(call: Call<MostPopularApiResponse>, t: Throwable) {
                 call.cancel()
-                data.value = Resource.loading(false)
+                data.value =
+                    Resource.loading(
+                        false
+                    )
                 // data.value = Resource.hostError(getCustomErrorMessageAsPerHttp(t), null)
             }
         })

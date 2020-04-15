@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="com.mobile.techassessmentapp.ui.activity.MainActivity">
+    tools:context="com.mobile.techassessmentapp.ui.activity.main.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_mostpopular_list"

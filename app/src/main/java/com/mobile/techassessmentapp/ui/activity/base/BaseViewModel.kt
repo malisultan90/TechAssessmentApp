@@ -1,10 +1,7 @@
-package com.mobile.techassessmentapp.viewmodel
+package com.mobile.techassessmentapp.ui.activity.base
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
 
 open abstract class BaseViewModel : ViewModel() {
 

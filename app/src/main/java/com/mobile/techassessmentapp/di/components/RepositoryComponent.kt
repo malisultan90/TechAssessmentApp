@@ -1,6 +1,6 @@
 package org.litterati.android.di.components
 
-import com.mobile.techassessmentapp.network.MostPopularRepository
+import com.mobile.techassessmentapp.repository.MostPopularRepository
 import dagger.Subcomponent
 
 /**

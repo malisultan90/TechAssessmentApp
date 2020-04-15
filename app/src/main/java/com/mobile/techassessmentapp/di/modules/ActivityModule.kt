@@ -1,6 +1,6 @@
 package com.mobile.techassessmentapp.di.modules
 
-import com.mobile.techassessmentapp.ui.activity.MainActivity
+import com.mobile.techassessmentapp.ui.activity.main.MainActivity
 import com.mobile.techassessmentapp.ui.activity.detail.DetailActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

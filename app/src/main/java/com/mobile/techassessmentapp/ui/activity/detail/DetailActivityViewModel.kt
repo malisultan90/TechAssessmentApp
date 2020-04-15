@@ -1,6 +1,6 @@
 package com.mobile.techassessmentapp.ui.activity.detail
 
-import com.mobile.techassessmentapp.viewmodel.BaseViewModel
+import com.mobile.techassessmentapp.ui.activity.base.BaseViewModel
 import javax.inject.Inject
 
 class DetailActivityViewModel @Inject
