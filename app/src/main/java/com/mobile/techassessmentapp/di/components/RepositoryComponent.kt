@@ -1,5 +1,6 @@
 package org.litterati.android.di.components
 
+import com.mobile.techassessmentapp.network.MostPopularRepository
 import dagger.Subcomponent
 
 /**
@@ -12,11 +13,5 @@ interface RepositoryComponent {
         fun build(): RepositoryComponent
     }
 
-//    fun ProfileRepository(): ProfileRepository
-//
-//    fun ChallengeRepository(): ChallengeRepository
-//
-//    fun LeaderBoardRepository(): LeaderBoardRepository
-
-
+    fun MostPopularRepository(): MostPopularRepository
 }

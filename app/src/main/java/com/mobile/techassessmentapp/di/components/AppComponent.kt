@@ -4,6 +4,7 @@ import android.app.Application
 import com.mobile.techassessmentapp.TechAssessmentApp
 import com.mobile.techassessmentapp.di.modules.AppModule
 import com.mobile.techassessmentapp.di.modules.ActivityModule
+import com.skydoves.githubfollows.di.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -19,7 +20,7 @@ import javax.inject.Singleton
  * </p>
  */
 @Singleton
-@Component(modules = [(AndroidInjectionModule::class), (AppModule::class), (ActivityModule::class)])
+@Component(modules = [(AndroidInjectionModule::class), (ViewModelModule::class), (AppModule::class), (ActivityModule::class)])
 interface AppComponent {
 
     @Component.Builder
@@ -53,7 +54,4 @@ interface AppComponent {
 
     @Named("default-instance")
     fun getRetrofit(): Retrofit
-
-//    fun getLitteratiService(): LitteratiService
-
 }

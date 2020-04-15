@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.mobile.techassessmentapp.TechAssessmentApp
+import com.mobile.techassessmentapp.di.components.DaggerAppComponent
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
@@ -21,59 +22,59 @@ object AppInjector {
      * @param app [MercariApp] instance
      */
     fun init(app: TechAssessmentApp) {
-//        DaggerAppComponent
-//            .builder()
-//            .application(app)
-//            .build()
-//            .inject(app)
+        DaggerAppComponent
+            .builder()
+            .application(app)
+            .build()
+            .inject(app)
 
-//        app.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
-//            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-//                handleActivity(activity)
-//            }
-//
-//            override fun onActivityStarted(activity: Activity) {
-//
-//            }
-//
-//            override fun onActivityResumed(activity: Activity) {
-//
-//            }
-//
-//            override fun onActivityPaused(activity: Activity) {
-//
-//            }
-//
-//            override fun onActivityStopped(activity: Activity) {
-//
-//            }
-//
-//            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle?) {
-//
-//            }
-//
-//            override fun onActivityDestroyed(activity: Activity) {
-//
-//            }
-//        })
+        app.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
+            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+                handleActivity(activity)
+            }
+
+            override fun onActivityStarted(activity: Activity) {
+
+            }
+
+            override fun onActivityResumed(activity: Activity) {
+
+            }
+
+            override fun onActivityPaused(activity: Activity) {
+
+            }
+
+            override fun onActivityStopped(activity: Activity) {
+
+            }
+
+            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle?) {
+
+            }
+
+            override fun onActivityDestroyed(activity: Activity) {
+
+            }
+        })
     }
 
     /**
      * Inject Activity and Fragment in [AndroidInjection] graph for supporting Android core components.
      */
-//    private fun handleActivity(activity: Activity) {
-//        if (activity is HasSupportFragmentInjector) {
-//            AndroidInjection.inject(activity)
-//        }
+    private fun handleActivity(activity: Activity) {
+        if (activity is HasSupportFragmentInjector) {
+            AndroidInjection.inject(activity)
+        }
 //        (activity as? AppCompatActivity)?.supportFragmentManager?.registerFragmentLifecycleCallbacks(
 //            object : FragmentManager.FragmentLifecycleCallbacks() {
 //                override fun onFragmentCreated(fm: FragmentManager, fragment: Fragment, savedInstanceState: Bundle?) {
 //                    //super.onFragmentCreated(fm, f, savedInstanceState)
-//                    if (fragment is Injectable) {
-//                        AndroidSupportInjection.inject(fragment)
-//                    }
+////                    if (fragment is Injectable) {
+////                        AndroidSupportInjection.inject(fragment)
+////                    }
 //                }
 //            }, true
 //        )
-//    }
+    }
 }

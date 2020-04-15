@@ -1,6 +1,7 @@
 package com.mobile.techassessmentapp.di.modules
 
 import com.mobile.techassessmentapp.ui.activity.MainActivity
+import com.mobile.techassessmentapp.ui.activity.detail.DetailActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -12,8 +13,8 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector()
     internal abstract fun contributeMainActivity(): MainActivity
-//
-//    @ContributesAndroidInjector(modules = [(FragmentBuildersModule::class)])
-//    internal abstract fun contributeMainActivity(): MainActivity
+
+    @ContributesAndroidInjector()
+    internal abstract fun contributeDetailActivity(): DetailActivity
 
 }

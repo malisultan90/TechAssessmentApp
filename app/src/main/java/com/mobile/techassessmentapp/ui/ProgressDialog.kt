@@ -12,7 +12,7 @@ class ProgressDialog{
         fun makeDialog(context: Context?): Dialog? {
             context?.let {
                 val dialog = Dialog(context)
-                val inflate = LayoutInflater.from(context).inflate(R.layout.progress_dailog, null)
+                val inflate = LayoutInflater.from(context).inflate(R.layout.dailog_progressindicator, null)
 
 //                GlideApp.with(context).asGif().load(R.drawable.loader).into(inflate.progressLoader)
                 dialog.setContentView(inflate)

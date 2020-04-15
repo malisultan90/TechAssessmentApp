@@ -18,6 +18,8 @@ object AppConstants {
      */
     const val WEB_READ_TIMEOUT = 60L // in minutes
 
+    const val API_UNKNOWN_REQUEST_ERROR_CODE = -1
+
     /**
      * Authorization Header name
      */

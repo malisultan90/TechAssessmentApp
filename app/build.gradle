@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -35,8 +36,34 @@ android {
             applicationId "com.mobile.testassessmentapp"
         }
     }
+
+    lintOptions {
+        disable 'RestrictedApi'
+    }
+    kapt {
+        correctErrorTypes = true
+    }
+    dataBinding {
+        enabled = true
+    }
+    androidExtensions {
+        experimental = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
 }
 
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
 
 final supportDependencies = [
         multiDex        : "androidx.multidex:multidex:2.0.0",
@@ -48,15 +75,20 @@ final supportDependencies = [
 ]
 
 final kotlinDependencies = [
-        kotlinJdk: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlin_version}",
-        kotlinKtx: "androidx.core:core-ktx:1.2.0",
-        //kotlinPaging: "androidx.paging:paging-runtime:2.1.0"
+        kotlinJdk   : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlin_version}",
+        kotlinKtx   : "androidx.core:core-ktx:1.1.0-alpha05",
+        kotlinPaging: "androidx.paging:paging-runtime:2.1.0"
 ]
 
 final coroutine = [
         core          : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.ext.coroutineVersion}",
         androidVersion: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.ext.coroutineVersion}",
 
+]
+
+final imageLoadingDependencies = [
+        glide         : "com.github.bumptech.glide:glide:4.9.0",
+        glideTransform: "jp.wasabeef:glide-transformations:4.0.1"
 ]
 
 final architectureComponents = [
@@ -70,6 +102,13 @@ final daggerInjection = [
         dagger              : "com.google.dagger:dagger:${rootProject.ext.daggerVersion}",
         daggerAndroid       : "com.google.dagger:dagger-android:${rootProject.ext.daggerVersion}",
         daggerAndroidSupport: "com.google.dagger:dagger-android-support:${rootProject.ext.daggerVersion}"
+]
+
+final compileDep = [
+        lifeCycleCompile    : "android.arch.lifecycle:compiler:${rootProject.ext.archVersion}",
+        daggerprocessCompile: "com.google.dagger:dagger-android-processor:${rootProject.ext.daggerVersion}",
+        daggerCompile       : "com.google.dagger:dagger-compiler:${rootProject.ext.daggerVersion}",
+        glideCompile        : "com.github.bumptech.glide:compiler:4.9.0"
 ]
 
 final networkDependencies = [
@@ -93,4 +132,6 @@ dependencies {
     implementation architectureComponents.values()
     implementation daggerInjection.values()
     implementation networkDependencies.values()
+    implementation imageLoadingDependencies.values()
+    kapt compileDep.values()
 }

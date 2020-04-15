@@ -26,10 +26,10 @@ class TechAssessmentApp : MultiDexApplication(), HasActivityInjector {
 //    @Inject
 //    lateinit var dispatchingServiceInjector: DispatchingAndroidInjector<Service>
 
-//    @Inject
-//    lateinit var appComponent: AppComponent
+    @Inject
+    lateinit var appComponent: AppComponent
 
-   // val callbacks = FTActivityLifecycleCallbacks(this)
+//    val callbacks = FTActivityLifecycleCallbacks(this)
 
 //    private val profileViewIDStack = arrayListOf<Int>()
 
@@ -95,7 +95,7 @@ class TechAssessmentApp : MultiDexApplication(), HasActivityInjector {
     //region Helper method for Dagger Setup
     fun setupDaggerComponent() {
         AppInjector.init(this)
-//        appComponent.inject(this)
+        appComponent.inject(this)
     }
     //endregion
 

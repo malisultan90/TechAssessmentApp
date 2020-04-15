@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mobile.techassessmentapp.ui.activity.detail.DetailActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mobile.techassessmentapp.ui.activity.detail.DetailActivityViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:id="@+id/appBarLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <include-->
+<!--                android:id="@+id/detail_toolbar"-->
+<!--                layout="@layout/toolbar_default" />-->
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+<!--        <include-->
+<!--            android:id="@+id/detail_header"-->
+<!--            layout="@layout/layout_detail_header" />-->
+
+        <include layout="@layout/layout_detail_body" />
+
+    </LinearLayout>
+</layout>
